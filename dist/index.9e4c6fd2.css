@@ -1,37 +1,65 @@
-.header {
-  border: 1px solid #000;
-  justify-content: space-between;
-  margin: 10px;
-  display: flex;
-}
-
-.nav-item > ul {
-  list-style-type: none;
-  display: flex;
-}
-
-.nav-item > ul > li {
-  padding: 10px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
 }
 
 .logo {
-  width: 100px;
+  width: 50px;
+}
+
+.head {
+  color: #fff;
+  background-color: #15605e;
+  justify-content: space-between;
+  padding: 2rem;
+  display: flex;
+}
+
+.nav-items ul {
+  gap: 2rem;
+  padding: 0;
+  display: flex;
+}
+
+.nav-items ul li {
+  list-style: none;
+}
+
+.restaurant-list {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 90%;
+  margin: 2rem auto;
+  display: flex;
 }
 
 .card {
-  border: 1px solid #000;
+  border-radius: 5px;
   width: 200px;
-  margin: 10px;
-  padding: 10px;
+  padding: 1rem;
+  box-shadow: 5px 5px 10px gray;
+}
+
+.ratings {
+  border-radius: 5px;
+  justify-content: space-between;
+  margin-top: 1rem;
+  display: flex;
 }
 
 .card > img {
+  border-radius: 5px;
   width: 100%;
 }
 
-.list {
-  flex-wrap: wrap;
-  display: flex;
+.footer {
+  text-align: center;
+  color: #fff;
+  background-color: #15605e;
+  margin-top: 2rem;
+  padding: 1rem;
 }
 
 /*# sourceMappingURL=index.9e4c6fd2.css.map */
