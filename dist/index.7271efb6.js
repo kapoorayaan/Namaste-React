@@ -27454,9 +27454,6 @@ var _constants = require("../constants");
 var _restaurantCard = require("./RestaurantCard");
 var _restaurantCardDefault = parcelHelpers.interopDefault(_restaurantCard);
 var _s = $RefreshSig$();
-// What is state
-// what is React Hooks? - functions,
-// What is useState
 function filterData(searchText, restaurants) {
     const filterData = restaurants.filter((restaurant)=>restaurant.data.name.includes(searchText));
     return filterData;
@@ -27480,7 +27477,7 @@ const Body = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 16,
+                        lineNumber: 13,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27494,13 +27491,13 @@ const Body = ()=>{
                         children: "Search"
                     }, void 0, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 19,
+                        lineNumber: 16,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 15,
+                lineNumber: 12,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27511,7 +27508,7 @@ const Body = ()=>{
                         key: restaurant.data.id,
                         __source: {
                             fileName: "src/Components/Body.js",
-                            lineNumber: 30,
+                            lineNumber: 27,
                             columnNumber: 16
                         },
                         __self: undefined
@@ -27519,7 +27516,7 @@ const Body = ()=>{
                 })
             }, void 0, false, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 28,
+                lineNumber: 25,
                 columnNumber: 7
             }, undefined)
         ]

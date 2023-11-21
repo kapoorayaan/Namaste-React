@@ -1,9 +1,6 @@
 import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
 import { useState } from "react";
-// What is state
-// what is React Hooks? - functions,
-// What is useState
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
     restaurant.data.name.includes(searchText)
