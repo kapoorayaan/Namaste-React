@@ -1,16 +1,15 @@
-import { IMG_CDN_URL } from "../constants";
-const RestrauntCard = ({
-  name,
-  cuisines,
-  cloudinaryImageId,
-  lastMileTravelString,
-}) => {
+import { IMG_CDN_URL, restaurantList } from "../constants";
+const RestrauntCard = ({ name, areaName, cloudinaryImageId }) => {
   return (
     <div className="card">
-      <img src={IMG_CDN_URL + cloudinaryImageId} />
-      <h2>{name}</h2>
-      <h3>{cuisines.join(", ")}</h3>
-      <h4>{lastMileTravelString} minutes</h4>
+      <img
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          res.info.cloudinaryImageId
+        }
+      ></img>
+      <h1>{res.info.name}</h1>
+      <h3>{res.info.areaName}</h3>
     </div>
   );
 };

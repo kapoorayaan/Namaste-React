@@ -1,15 +1,27 @@
-import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
+import { restaurantList } from "../constants";
+import { useState, useEffect } from "react";
 function filterData(searchText, restaurants) {
-  const filterData = restaurants.filter((restaurant) =>
+  return restaurants.filter((restaurant) =>
     restaurant.data.name.includes(searchText)
   );
-  return filterData;
 }
 const Body = () => {
-  const [restaurants, setRestaurants] = useState(restaurantList);
+  const [restaurants, setRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+  useEffect(() => {
+    //API CALL
+    getRestaurant();
+  }, []);
+  async function getRestaurant() {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=31.2689514&lng=75.5866691&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    setRestaurants(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  }
   return (
     <>
       <div className="search-container">
@@ -35,10 +47,12 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-list">
-        {restaurants.map((restaurant) => {
-          return (
-            <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
-          );
+        {restaurantList.map((x) => {
+          //console.log(x);
+          x.restaurants.map((res) => {
+            console.log(res.info.name);
+            return <RestaurantCard {...res.info} />;
+          });
         })}
       </div>
     </>
