@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { restaurantList } from "../constants";
 import { useState, useEffect } from "react";
+import RestrauntCard from "./RestaurantCard";
 function filterData(searchText, restaurants) {
   return restaurants.filter((restaurant) =>
     restaurant.data.name.includes(searchText)
@@ -47,12 +48,8 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-list">
-        {restaurantList.map((x) => {
-          //console.log(x);
-          x.restaurants.map((res) => {
-            console.log(res.info.name);
-            return <RestaurantCard {...res.info} />;
-          });
+        {restaurantList.map((res) => {
+          return <RestrauntCard {...res.info} />;
         })}
       </div>
     </>
