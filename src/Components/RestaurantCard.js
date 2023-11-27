@@ -5,6 +5,8 @@ const RestrauntCard = ({
   cloudinaryImageId,
   costForTwo,
   avgRatingString,
+  cuisines,
+  id,
 }) => {
   return (
     <div className="card">
@@ -14,10 +16,10 @@ const RestrauntCard = ({
           cloudinaryImageId
         }
       ></img>
-      <h1>{name}</h1>
-      <h2>{costForTwo}</h2>
-      <h3>{areaName}</h3>
-      <h4>Average Rating {avgRatingString}</h4>
+      <h2>{name}</h2>
+      <h3>{cuisines?.join(", ")}</h3>
+      <h4>Location: {areaName}</h4>
+      <h5>Average Rating {avgRatingString}</h5>
     </div>
   );
 };

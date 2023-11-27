@@ -27455,11 +27455,13 @@ var _constants = require("../constants");
 var _react = require("react");
 var _s = $RefreshSig$();
 function filterData(searchText, restaurants) {
-    return restaurants.filter((restaurant)=>restaurant.data.name.includes(searchText));
+    return restaurants.filter((restaurant)=>restaurant.info.name.includes(searchText));
 }
 const Body = ()=>{
     _s();
-    const [restaurants, setRestaurants] = (0, _react.useState)([]);
+    const [restaurants, setRestaurants] = (0, _react.useState)([
+        (0, _constants.restaurantList)
+    ]);
     const [searchText, setSearchText] = (0, _react.useState)("");
     (0, _react.useEffect)(()=>{
         //API CALL
@@ -27469,6 +27471,7 @@ const Body = ()=>{
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=31.2689514&lng=75.5866691&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
         setRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
@@ -27485,7 +27488,7 @@ const Body = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 22,
+                        lineNumber: 23,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27499,35 +27502,35 @@ const Body = ()=>{
                         children: "Search"
                     }, void 0, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 25,
+                        lineNumber: 26,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 21,
+                lineNumber: 22,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "restaurant-list",
-                children: (0, _constants.restaurantList).map((res)=>{
+                children: restaurants.map((res)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
                         ...res.info
                     }, void 0, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 36,
+                        lineNumber: 37,
                         columnNumber: 16
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 34,
+                lineNumber: 35,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true);
 };
-_s(Body, "66UiF15CHY63OgohoPg0THxR6sc=");
+_s(Body, "i196l9nSOlahmppBiDpUuzwtKuQ=");
 _c = Body;
 exports.default = Body;
 var _c;
@@ -27549,7 +27552,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _constants = require("../constants");
-const RestrauntCard = ({ name, areaName, cloudinaryImageId, costForTwo, avgRatingString })=>{
+const RestrauntCard = ({ name, areaName, cloudinaryImageId, costForTwo, avgRatingString, cuisines, id })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "card",
         children: [
@@ -27557,44 +27560,47 @@ const RestrauntCard = ({ name, areaName, cloudinaryImageId, costForTwo, avgRatin
                 src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId
             }, void 0, false, {
                 fileName: "src/Components/RestaurantCard.js",
-                lineNumber: 10,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: name
-            }, void 0, false, {
-                fileName: "src/Components/RestaurantCard.js",
-                lineNumber: 11,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: costForTwo
-            }, void 0, false, {
-                fileName: "src/Components/RestaurantCard.js",
                 lineNumber: 12,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                children: areaName
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: name
             }, void 0, false, {
                 fileName: "src/Components/RestaurantCard.js",
                 lineNumber: 13,
                 columnNumber: 7
             }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: cuisines?.join(", ")
+            }, void 0, false, {
+                fileName: "src/Components/RestaurantCard.js",
+                lineNumber: 14,
+                columnNumber: 7
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                children: [
+                    "Location: ",
+                    areaName
+                ]
+            }, void 0, true, {
+                fileName: "src/Components/RestaurantCard.js",
+                lineNumber: 15,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
                 children: [
                     "Average Rating ",
                     avgRatingString
                 ]
             }, void 0, true, {
                 fileName: "src/Components/RestaurantCard.js",
-                lineNumber: 14,
+                lineNumber: 16,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/RestaurantCard.js",
-        lineNumber: 9,
+        lineNumber: 11,
         columnNumber: 10
     }, undefined);
 };

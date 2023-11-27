@@ -2,13 +2,14 @@ import RestaurantCard from "./RestaurantCard";
 import { restaurantList } from "../constants";
 import { useState, useEffect } from "react";
 import RestrauntCard from "./RestaurantCard";
+
 function filterData(searchText, restaurants) {
   return restaurants.filter((restaurant) =>
-    restaurant.data.name.includes(searchText)
+    restaurant.info.name.includes(searchText)
   );
 }
 const Body = () => {
-  const [restaurants, setRestaurants] = useState([]);
+  const [restaurants, setRestaurants] = useState([restaurantList]);
   const [searchText, setSearchText] = useState("");
   useEffect(() => {
     //API CALL
@@ -20,6 +21,9 @@ const Body = () => {
     );
     const json = await data.json();
     setRestaurants(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    console.log(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
@@ -48,8 +52,8 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-list">
-        {restaurantList.map((res) => {
-          return <RestrauntCard {...res.info} />;
+        {restaurants.map((res) => {
+          return <RestrauntCard {...res.info} /* key={res.info.id}*/ />;
         })}
       </div>
     </>
