@@ -6,7 +6,7 @@ import Shimmer from "./Shimmer";
 
 function filterData(searchText, restaurants) {
   return restaurants.filter((restaurant) =>
-    restaurant.info.name.includes(searchText)
+    restaurant.info.name?.toLowerCase().includes(searchText.toLowerCase())
   );
 }
 const Body = () => {
@@ -29,8 +29,9 @@ const Body = () => {
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
+  if (!AllRestaurants) return null;
 
-  return AllRestaurants.length === 0 ? (
+  return AllRestaurants.length == 0 ? (
     <Shimmer />
   ) : (
     <>
