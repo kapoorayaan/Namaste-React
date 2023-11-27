@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { restaurantList } from "../constants";
 import { useState, useEffect } from "react";
 import RestrauntCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 
 function filterData(searchText, restaurants) {
   return restaurants.filter((restaurant) =>
@@ -9,7 +10,8 @@ function filterData(searchText, restaurants) {
   );
 }
 const Body = () => {
-  const [restaurants, setRestaurants] = useState([restaurantList]);
+  const [AllRestaurants, setAllRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   useEffect(() => {
     //API CALL
@@ -20,14 +22,17 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=31.2689514&lng=75.5866691&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    setRestaurants(
+    setAllRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    console.log(
+    setFilteredRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
-  return (
+
+  return AllRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="search-container">
         <input
@@ -43,17 +48,17 @@ const Body = () => {
           className="search-btn"
           onClick={() => {
             //need to filter the data
-            const data = filterData(searchText, restaurants);
+            const data = filterData(searchText, AllRestaurants);
             // update the state - restaurants
-            setRestaurants(data);
+            setFilteredRestaurants(data);
           }}
         >
           Search
         </button>
       </div>
       <div className="restaurant-list">
-        {restaurants.map((res) => {
-          return <RestrauntCard {...res.info} /* key={res.info.id}*/ />;
+        {filteredRestaurants.map((res) => {
+          return <RestrauntCard {...res.info} key={res.info.id} />;
         })}
       </div>
     </>
