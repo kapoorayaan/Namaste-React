@@ -1,11 +1,13 @@
 .header {
   border: 1px solid #000;
   justify-content: space-between;
+  width: 100%;
   margin: 10px;
   display: flex;
 }
 
 .nav-items > ul {
+  width: 100%;
   list-style-type: none;
   display: flex;
 }
@@ -19,7 +21,6 @@
 }
 
 .card {
-  word-wrap: break-word;
   border: 1px solid #000;
   width: 200px;
   margin: 10px;
@@ -27,13 +28,13 @@
 }
 
 .card > img {
-  object-fit: cover;
   width: 200px;
   height: 200px;
 }
 
 .restaurant-list {
   flex-wrap: wrap;
+  width: 100%;
   display: flex;
 }
 

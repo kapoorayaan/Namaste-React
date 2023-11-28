@@ -27352,6 +27352,12 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _s = $RefreshSig$();
+const auth = ()=>{
+    //api call to check= authentication
+    return true;
+};
 const Title = ()=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
         href: "/",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -27360,22 +27366,24 @@ const Title = ()=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
             src: "https://yt3.ggpht.com/ytc/AMLnZu_EC-ECXAxRAixWGEfMsE1rdSoetBHyxmLNdtCB=s900-c-k-c0x00ffffff-no-rj"
         }, void 0, false, {
             fileName: "src/Components/Header.js",
-            lineNumber: 2,
+            lineNumber: 7,
             columnNumber: 5
         }, undefined)
     }, void 0, false, {
         fileName: "src/Components/Header.js",
-        lineNumber: 1,
+        lineNumber: 6,
         columnNumber: 21
     }, undefined);
 _c = Title;
 const Header = ()=>{
+    _s();
+    const [isLoggedIn, setisLoggedIn] = (0, _react.useState)(true);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "header",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Title, {}, void 0, false, {
                 fileName: "src/Components/Header.js",
-                lineNumber: 6,
+                lineNumber: 12,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27386,48 +27394,64 @@ const Header = ()=>{
                             children: "Home"
                         }, void 0, false, {
                             fileName: "src/Components/Header.js",
-                            lineNumber: 9,
+                            lineNumber: 15,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "About"
                         }, void 0, false, {
                             fileName: "src/Components/Header.js",
-                            lineNumber: 10,
+                            lineNumber: 16,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Contact"
                         }, void 0, false, {
                             fileName: "src/Components/Header.js",
-                            lineNumber: 11,
+                            lineNumber: 17,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Cart"
                         }, void 0, false, {
                             fileName: "src/Components/Header.js",
-                            lineNumber: 12,
+                            lineNumber: 18,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/Header.js",
-                    lineNumber: 8,
+                    lineNumber: 14,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/Header.js",
-                lineNumber: 7,
+                lineNumber: 13,
                 columnNumber: 7
+            }, undefined),
+            isLoggedIn ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>setisLoggedIn(false),
+                children: "Login"
+            }, void 0, false, {
+                fileName: "src/Components/Header.js",
+                lineNumber: 21,
+                columnNumber: 21
+            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>setisLoggedIn(true),
+                children: "Logout"
+            }, void 0, false, {
+                fileName: "src/Components/Header.js",
+                lineNumber: 21,
+                columnNumber: 83
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Header.js",
-        lineNumber: 5,
+        lineNumber: 11,
         columnNumber: 10
     }, undefined);
 };
+_s(Header, "XG0JO+b1rT3NarHkZFPFivYFSQo=");
 _c1 = Header;
 exports.default = Header;
 var _c, _c1;
@@ -27439,7 +27463,7 @@ $RefreshReg$(_c1, "Header");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6J35F":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"6J35F":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4f14 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

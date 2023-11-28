@@ -9,6 +9,7 @@ function filterData(searchText, restaurants) {
     restaurant.info.name?.toLowerCase().includes(searchText.toLowerCase())
   );
 }
+
 const Body = () => {
   const [AllRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
