@@ -23,8 +23,9 @@
 .card {
   border: 1px solid #000;
   width: 200px;
+  height: 500px;
   margin: 10px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .card > img {
@@ -35,6 +36,19 @@
 .restaurant-list {
   flex-wrap: wrap;
   width: 100%;
+  display: flex;
+}
+
+.shimmer-card {
+  background-color: #d3d3d3;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.menu {
+  margin: 10px;
   display: flex;
 }
 

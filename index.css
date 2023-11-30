@@ -18,9 +18,10 @@
 }
 .card {
   border: 1px solid black;
-  padding: 10px;
+  padding: 20px;
   margin: 10px;
   width: 200px;
+  height: 500px;
 }
 .card > img {
   width: 200;
@@ -30,4 +31,15 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+}
+.shimmer-card {
+  width: 200px;
+  background-color: lightgray;
+  margin: 10px;
+  padding: 10px;
+  height: 200px;
+}
+.menu {
+  display: flex;
+  margin: 10px;
 }
