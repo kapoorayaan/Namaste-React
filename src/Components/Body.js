@@ -4,12 +4,8 @@ import { useState, useEffect } from "react";
 import RestrauntCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
-function filterData(searchText, restaurants) {
-  return restaurants.filter((restaurant) =>
-    restaurant.info.name?.toLowerCase().includes(searchText.toLowerCase())
-  );
-}
+import { filterData } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const [AllRestaurants, setAllRestaurants] = useState([]);
@@ -31,16 +27,21 @@ const Body = () => {
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
+
+  const isOnline = useOnline();
+  if (!isOnline) {
+    return <h1>recharge your wifi homie😒</h1>;
+  }
   if (!AllRestaurants) return null;
 
   return AllRestaurants.length == 0 ? (
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="p-5 bg-pink-50 my-5 mx-2">
         <input
           type="text"
-          className="search-input"
+          className="focus:bg-green-100 hover:bg-red-50 shadow-lg m-2 p-2"
           placeholder="Search"
           value={searchText}
           onChange={(e) => {
@@ -48,7 +49,8 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+          className="search-btn p-2 m-2 bg-purple-900 text-white rounded-xl
+           hover:bg-violet-600"
           onClick={() => {
             //need to filter the data
             const data = filterData(searchText, AllRestaurants);
@@ -59,11 +61,11 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="restaurant-list">
+      <div className="flex flex-wrap">
         {filteredRestaurants?.map((res) => {
           return (
-            <Link to={"restaurant/" + res.info.id}>
-              <RestrauntCard {...res.info} />;
+            <Link to={"restaurant/" + res.info.id} key={res.info.id}>
+              <RestrauntCard {...res.info} />
             </Link>
           );
         })}

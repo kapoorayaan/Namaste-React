@@ -6,8 +6,7 @@ import Shimmer from "./Shimmer";
 const ResMenu = () => {
   const { resId } = useParams();
   const [restaurant, setrestaurant] = useState(null);
-  const [n, setn] = useState();
-
+  const [n, setn] = useState(null);
   useEffect(() => {
     getResInfo();
   }, []);

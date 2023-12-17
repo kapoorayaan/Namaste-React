@@ -9,7 +9,7 @@ const auth = () => {
 const Title = () => (
   <a href="/">
     <img
-      className="logo"
+      className="h-28 pl-2 "
       alt="logo"
       src="https://yt3.ggpht.com/ytc/AMLnZu_EC-ECXAxRAixWGEfMsE1rdSoetBHyxmLNdtCB=s900-c-k-c0x00ffffff-no-rj"
     />
@@ -18,20 +18,23 @@ const Title = () => (
 const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
   return (
-    <div className="header">
+    <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-yellow-100">
       <Title />
       <div className="nav-items">
-        <ul>
-          <Link to="/">
-            <li>Home</li>
-          </Link>
+        <ul className="flex py-10">
+          <li className="px-2">
+            <Link to="/">Home </Link>
+          </li>
           <Link to="/About">
-            <li>About</li>
+            <li className="px-2">About</li>
           </Link>
           <Link to="/contact">
-            <li>Contact</li>
+            <li className="px-2">Contact</li>
           </Link>
-          <li>Cart</li>
+          <li className="px-2">Cart</li>
+          <Link to="/instaMart">
+            <li className="px-2">InstaMart</li>
+          </Link>
         </ul>
       </div>
       {isLoggedIn ? (

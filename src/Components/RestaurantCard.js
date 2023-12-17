@@ -6,17 +6,11 @@ const RestrauntCard = ({
   costForTwo,
   avgRatingString,
   cuisines,
-  id,
 }) => {
   return (
-    <div className="card">
-      <img
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-      ></img>
-      <h2>{name}</h2>
+    <div className="card w-56 p-2 m-2 shadow-lg bg-pink-50">
+      <img src={IMG_CDN_URL + cloudinaryImageId}></img>
+      <h2 className="font-bold text-xl">{name}</h2>
       <h3>{cuisines?.join(", ")}</h3>
       <h4>Location: {areaName}</h4>
       <h5>Average Rating {avgRatingString}</h5>
