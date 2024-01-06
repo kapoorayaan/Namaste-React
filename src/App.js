@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
@@ -14,6 +14,11 @@ import Profile from "./Components/Profile";
 const InstaMart = lazy(() => import("./Components/InstaMart"));
 
 const AppLayout = () => {
+  const [user, setuser] = useState({
+    name: "Ayaan",
+    email: "ak@namastesdev.com",
+  });
+  useEffect(() => {});
   return (
     <>
       <Header />
