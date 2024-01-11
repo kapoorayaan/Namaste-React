@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import userContext from "../UserContext";
 
 const auth = () => {
   //api call to check= authentication
@@ -17,6 +18,7 @@ const Title = () => (
 );
 const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
+  const { user } = useContext(userContext);
   return (
     <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-yellow-100">
       <Title />
@@ -37,6 +39,7 @@ const Header = () => {
           </Link>
         </ul>
       </div>
+      {<h1 className="p-10 font-bold text-red-900">{user.name}</h1>}
       {isLoggedIn ? (
         <button onClick={() => setisLoggedIn(false)}>Login</button>
       ) : (

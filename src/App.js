@@ -14,10 +14,6 @@ import Profile from "./Components/Profile";
 const InstaMart = lazy(() => import("./Components/InstaMart"));
 
 const AppLayout = () => {
-  const [user, setuser] = useState({
-    name: "Ayaan",
-    email: "ak@namastesdev.com",
-  });
   useEffect(() => {});
   return (
     <>
