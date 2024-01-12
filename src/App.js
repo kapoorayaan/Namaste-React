@@ -14,7 +14,6 @@ import Profile from "./Components/Profile";
 const InstaMart = lazy(() => import("./Components/InstaMart"));
 
 const AppLayout = () => {
-  useEffect(() => {});
   return (
     <>
       <Header />
