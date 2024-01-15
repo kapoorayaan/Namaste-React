@@ -2964,46 +2964,42 @@ var _resMenu = require("./Components/ResMenu");
 var _resMenuDefault = parcelHelpers.interopDefault(_resMenu);
 var _profile = require("./Components/Profile");
 var _profileDefault = parcelHelpers.interopDefault(_profile);
-var _s = $RefreshSig$();
 //import InstaMart from "./Components/InstaMart";
 const InstaMart = /*#__PURE__*/ (0, _react.lazy)(()=>require("d908151de718aedf"));
 _c = InstaMart;
 const AppLayout = ()=>{
-    _s();
-    (0, _react.useEffect)(()=>{});
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 18,
+                lineNumber: 17,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 19,
+                lineNumber: 18,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _footerDefault.default), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 20,
+                lineNumber: 19,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true);
 };
-_s(AppLayout, "OD7bBpZva5O2jO+Puf00hKivP7c=");
 _c1 = AppLayout;
 const appRouter = (0, _reactRouterDom.createBrowserRouter)([
     {
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AppLayout, {}, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 25,
+            lineNumber: 24,
             columnNumber: 12
         }, undefined),
         errorElement: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorDefault.default), {}, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 26,
+            lineNumber: 25,
             columnNumber: 17
         }, undefined),
         children: [
@@ -3011,7 +3007,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 29,
+                    lineNumber: 28,
                     columnNumber: 14
                 }, undefined)
             },
@@ -3019,7 +3015,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "about",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 32,
+                    lineNumber: 31,
                     columnNumber: 14
                 }, undefined),
                 children: [
@@ -3028,7 +3024,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                         // (/) means from the root, here we need from about so we wont add / to it
                         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileDefault.default), {}, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 36,
+                            lineNumber: 35,
                             columnNumber: 16
                         }, undefined)
                     }
@@ -3038,7 +3034,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/contact",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _contactDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 40,
+                    lineNumber: 39,
                     columnNumber: 14
                 }, undefined)
             },
@@ -3046,7 +3042,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/restaurant/:resId",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _resMenuDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 43,
+                    lineNumber: 42,
                     columnNumber: 14
                 }, undefined)
             },
@@ -3055,12 +3051,12 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Suspense), {
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(InstaMart, {}, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 47,
+                        lineNumber: 46,
                         columnNumber: 13
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 46,
+                    lineNumber: 45,
                     columnNumber: 14
                 }, undefined)
             }
@@ -3072,7 +3068,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.RouterP
     router: appRouter
 }, void 0, false, {
     fileName: "src/App.js",
-    lineNumber: 52,
+    lineNumber: 51,
     columnNumber: 13
 }, undefined));
 var _c, _c1;
@@ -34016,21 +34012,23 @@ const Body = ()=>{
     async function getRestaurant() {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=31.2689514&lng=75.5866691&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    }
+        setAllRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    /*console.log(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );*/ }
     const isOnline = (0, _useOnlineDefault.default)();
     if (!isOnline) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
         children: "recharge your wifi homie\uD83D\uDE12"
     }, void 0, false, {
         fileName: "src/Components/Body.js",
-        lineNumber: 25,
+        lineNumber: 29,
         columnNumber: 12
     }, undefined);
     if (!AllRestaurants) return null;
     return AllRestaurants.length == 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/Components/Body.js",
-        lineNumber: 28,
+        lineNumber: 32,
         columnNumber: 39
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
@@ -34047,7 +34045,7 @@ const Body = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 30,
+                        lineNumber: 34,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34061,13 +34059,13 @@ const Body = ()=>{
                         children: "Search"
                     }, void 0, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 33,
+                        lineNumber: 37,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 29,
+                lineNumber: 33,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34079,18 +34077,18 @@ const Body = ()=>{
                             ...res.info
                         }, void 0, false, {
                             fileName: "src/Components/Body.js",
-                            lineNumber: 46,
+                            lineNumber: 50,
                             columnNumber: 15
                         }, undefined)
                     }, res.info.id, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 45,
+                        lineNumber: 49,
                         columnNumber: 16
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 43,
+                lineNumber: 47,
                 columnNumber: 7
             }, undefined)
         ]

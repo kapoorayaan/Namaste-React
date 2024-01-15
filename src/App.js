@@ -22,7 +22,7 @@ const AppLayout = () => {
     </>
   );
 };
-const approuter = createBrowserRouter([
+const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
@@ -54,4 +54,4 @@ const approuter = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={approuter} />);
+root.render(<RouterProvider router={appRouter} />);
