@@ -9,6 +9,7 @@ import Error from "./Components/Error";
 import Contact from "./Components/Contact";
 import ResMenu from "./Components/ResMenu";
 import Profile from "./Components/Profile";
+import { Provider } from "react-redux";
 //import InstaMart from "./Components/InstaMart";
 
 const InstaMart = lazy(() => import("./Components/InstaMart"));
