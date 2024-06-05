@@ -34191,8 +34191,8 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "IMG_CDN_URL", ()=>IMG_CDN_URL);
 parcelHelpers.export(exports, "FETCH_MENU_URL", ()=>FETCH_MENU_URL);
 parcelHelpers.export(exports, "restaurantList", ()=>restaurantList);
-const IMG_CDN_URL = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
-const FETCH_MENU_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=31.2689514&lng=75.5866691&restaurantId=";
+const IMG_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+const FETCH_MENU_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=31.2689847&lng=75.5867284&restaurantId=";
 const restaurantList = [
     {
         info: {
@@ -34905,48 +34905,40 @@ const ResMenu = ()=>{
         getResInfo();
     }, []);
     async function getResInfo() {
-        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=31.2689514&lng=75.5866691&restaurantId=" + resId);
+        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=31.2689847&lng=75.5867284&restaurantId=" + resId);
         const json = await data.json();
-        setrestaurant(json?.data?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards);
-        setn(json.data?.cards[0].card.card.info);
+        setrestaurant(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
+        console.log(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
+        setn(json?.data?.cards[2]?.card?.card?.info);
     }
     return !restaurant ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/Components/ResMenu.js",
-        lineNumber: 20,
+        lineNumber: 21,
         columnNumber: 24
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "menu",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "focus:bg-green-100 hover:bg-red-100 shadow-lg m-2 p-2",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        src: (0, _constants.IMG_CDN_URL) + n.cloudinaryImageId
-                    }, void 0, false, {
-                        fileName: "src/Components/ResMenu.js",
-                        lineNumber: 22,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                        children: n.name
+                        src: (0, _constants.IMG_CDN_URL) + n?.cloudinaryImageId
                     }, void 0, false, {
                         fileName: "src/Components/ResMenu.js",
                         lineNumber: 23,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                        children: [
-                            "City: ",
-                            n.city
-                        ]
-                    }, void 0, true, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                        children: n?.name
+                    }, void 0, false, {
                         fileName: "src/Components/ResMenu.js",
                         lineNumber: 24,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                         children: [
-                            "Locality: ",
-                            n.locality
+                            "City: ",
+                            n?.city
                         ]
                     }, void 0, true, {
                         fileName: "src/Components/ResMenu.js",
@@ -34955,53 +34947,71 @@ const ResMenu = ()=>{
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                         children: [
-                            "Rating: ",
-                            n.avgRatingString,
-                            " stars"
+                            "Locality: ",
+                            n?.locality
                         ]
                     }, void 0, true, {
                         fileName: "src/Components/ResMenu.js",
                         lineNumber: 26,
                         columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                        children: [
+                            "Rating: ",
+                            n?.avgRatingString,
+                            " stars"
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/Components/ResMenu.js",
+                        lineNumber: 27,
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/ResMenu.js",
-                lineNumber: 21,
+                lineNumber: 22,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                        children: " Menu"
-                    }, void 0, false, {
-                        fileName: "src/Components/ResMenu.js",
-                        lineNumber: 29,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                        children: restaurant?.map((res)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                children: res?.card?.info?.name
-                            }, res?.card?.info?.id, false, {
-                                fileName: "src/Components/ResMenu.js",
-                                lineNumber: 31,
-                                columnNumber: 35
-                            }, undefined))
+                        className: "focus:bg-green-100 hover:bg-red-100 shadow-lg m-2 p-2",
+                        children: "Menu"
                     }, void 0, false, {
                         fileName: "src/Components/ResMenu.js",
                         lineNumber: 30,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "focus:bg-green-100 hover:bg-red-100 shadow-lg m-2 p-2",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                            children: restaurant.map((items)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    children: items?.card?.info?.name
+                                }, items?.card?.info?.id, false, {
+                                    fileName: "src/Components/ResMenu.js",
+                                    lineNumber: 35,
+                                    columnNumber: 38
+                                }, undefined))
+                        }, void 0, false, {
+                            fileName: "src/Components/ResMenu.js",
+                            lineNumber: 34,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/Components/ResMenu.js",
+                        lineNumber: 33,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/ResMenu.js",
-                lineNumber: 28,
+                lineNumber: 29,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/ResMenu.js",
-        lineNumber: 20,
+        lineNumber: 21,
         columnNumber: 38
     }, undefined);
 };
