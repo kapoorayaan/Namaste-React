@@ -31,9 +31,7 @@ const ResMenu = () => {
     setn(json?.data?.cards[2]?.card?.card?.info);
   }
   const dispatchEvent = useDispatch();
-  const handleRemoveItem = () => {
-    dispatchEvent(clearCart());
-  };
+
   const addFoodItem = (items) => {
     dispatchEvent(addItem(items));
   };
@@ -47,14 +45,6 @@ const ResMenu = () => {
         <h2>City: {n?.city}</h2>
         <h2>Locality: {n?.locality}</h2>
         <h2>Rating: {n?.avgRatingString} stars</h2>
-      </div>
-      <div>
-        <button
-          className="p-2 m-5 bg-green-400"
-          onClick={() => handleRemoveItem()}
-        >
-          Clear Cart
-        </button>
       </div>
       <div>
         <h1>Menu</h1>

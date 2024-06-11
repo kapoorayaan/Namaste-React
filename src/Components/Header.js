@@ -21,7 +21,7 @@ const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
   const { user } = useContext(userContext);
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  // console.log(cartItems);
   return (
     <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-yellow-100">
       <Title />
