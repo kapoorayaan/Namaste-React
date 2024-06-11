@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import userContext from "../UserContext";
+import { useSelector } from "react-redux";
 
 const auth = () => {
   //api call to check= authentication
@@ -19,6 +20,8 @@ const Title = () => (
 const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
   const { user } = useContext(userContext);
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   return (
     <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-yellow-100">
       <Title />
@@ -33,9 +36,11 @@ const Header = () => {
           <Link to="/contact">
             <li className="px-2">Contact</li>
           </Link>
-          <li className="px-2">Cart</li>
           <Link to="/instaMart">
             <li className="px-2">InstaMart</li>
+          </Link>
+          <Link to="/cart">
+            <li className="px-2">Cart-{cartItems.length} items</li>
           </Link>
         </ul>
       </div>

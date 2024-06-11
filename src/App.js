@@ -9,18 +9,20 @@ import Error from "./Components/Error";
 import Contact from "./Components/Contact";
 import ResMenu from "./Components/ResMenu";
 import Profile from "./Components/Profile";
-import { Provider } from "react-redux";
 //import InstaMart from "./Components/InstaMart";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./Components/Cart";
 
 const InstaMart = lazy(() => import("./Components/InstaMart"));
 
 const AppLayout = () => {
   return (
-    <>
+    <Provider store={store}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </Provider>
   );
 };
 const appRouter = createBrowserRouter([
@@ -50,6 +52,7 @@ const appRouter = createBrowserRouter([
           </Suspense>
         ),
       },
+      { path: "/Cart", element: <Cart /> },
     ],
   },
 ]);
