@@ -41,6 +41,7 @@ test("search for string(food) on homepage", async () => {
   fireEvent.change(input, { target: { value: "pizza" } });
   const searchbtn = body.getByTestId("search-btn");
   fireEvent.click(searchbtn);
+  const resList = body.getByTestId("res-list");
   expect(resList.children.length).toBe(4);
   //console.log(resList);
 });
