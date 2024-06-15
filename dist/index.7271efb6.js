@@ -35995,15 +35995,17 @@ const ResMenu = ()=>{
             /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
                 children: [
                     /*#__PURE__*/ (0, _jsxRuntime.jsx)("h1", {
-                        children: "Menu"
+                        children: " Menu"
                     }),
                     /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
                         children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("ul", {
+                            "data-testid": "menu",
                             children: restaurant.map((items)=>/*#__PURE__*/ (0, _jsxRuntime.jsxs)("li", {
                                     children: [
                                         items?.card?.info?.name,
                                         " -",
                                         /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
+                                            "data-testid": "btn",
                                             title: "Add New",
                                             className: "group cursor-pointer outline-none hover:rotate-90 duration-300",
                                             onClick: ()=>addFoodItem(items),

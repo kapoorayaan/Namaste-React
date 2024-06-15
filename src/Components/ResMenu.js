@@ -47,13 +47,14 @@ const ResMenu = () => {
         <h2>Rating: {n?.avgRatingString} stars</h2>
       </div>
       <div>
-        <h1>Menu</h1>
+        <h1> Menu</h1>
         <div>
-          <ul>
+          <ul data-testid="menu">
             {restaurant.map((items) => (
               <li key={items?.card?.info?.id}>
                 {items?.card?.info?.name} -
                 <button
+                  data-testid="btn"
                   title="Add New"
                   className="group cursor-pointer outline-none hover:rotate-90 duration-300"
                   onClick={() => addFoodItem(items)}
