@@ -5,7 +5,6 @@ import RestrauntCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
-import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const [AllRestaurants, setAllRestaurants] = useState([]);
@@ -31,10 +30,6 @@ const Body = () => {
     );*/
   }
 
-  const isOnline = useOnline();
-  if (!isOnline) {
-    return <h1>recharge your wifi homie😒</h1>;
-  }
   if (!AllRestaurants) return null;
 
   return AllRestaurants.length == 0 ? (
@@ -43,6 +38,7 @@ const Body = () => {
     <>
       <div className="p-5 bg-pink-50 my-5 mx-2">
         <input
+          data-testid="search-input"
           type="text"
           className="focus:bg-green-100 hover:bg-red-50 shadow-lg m-2 p-2"
           placeholder="Search"
@@ -52,6 +48,7 @@ const Body = () => {
           }}
         />
         <button
+          data-testid="search-btn"
           className="search-btn p-2 m-2 bg-purple-900 text-white rounded-xl
            hover:bg-violet-600"
           onClick={() => {
@@ -64,7 +61,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap" data-testid="res-list">
         {filteredRestaurants?.map((res) => {
           return (
             <Link to={"restaurant/" + res.info.id} key={res.info.id}>
