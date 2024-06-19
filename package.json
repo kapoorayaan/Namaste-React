@@ -1,8 +1,11 @@
-{
+{   
+  "homepage": "https://kapoorayaan.github.io/Namaste-React",
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "Learning React",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "parcel index.html",
     "build": " parcel build index.html",
     "test": "jest",
